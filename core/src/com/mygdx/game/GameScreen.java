@@ -62,7 +62,7 @@ public class GameScreen implements Screen {
 
             TextureManager.getInstance().init("all/new.atlas");
 
-            house = new House(getJSONObjectFromFile(Const.JSON), myGame, new House.OnEndGame() {
+            house = new House(getJSONObjectFromFile(Const.JSON_HOUSE_WORLD), myGame, new House.OnEndGame() {
                 @Override
                 public void onEnd() {
                     dispose();
@@ -119,7 +119,8 @@ public class GameScreen implements Screen {
 
 
     @Override
-    public void render(float delta) { //обновляем каждую секунду
+    public void render(float delta) {
+        //обновляем каждую секунду
         house.update(delta);
 
         Gdx.gl.glClearColor(1, 1, 1, 1);
@@ -154,6 +155,8 @@ public class GameScreen implements Screen {
         return false;
     }
 
+
+
     @Override
     public void resize(int width, int height) {
         System.out.println();
@@ -166,6 +169,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void resume() {
+
         System.out.println();
 
     }

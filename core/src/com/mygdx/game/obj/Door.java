@@ -13,8 +13,8 @@ public class Door {
 
     protected House house;
     protected String id;
-    protected Room from;
-    protected Room to;
+    public Room from;
+    public Room to;
     protected boolean visible;
     protected boolean closed;
     private String specialDescription;

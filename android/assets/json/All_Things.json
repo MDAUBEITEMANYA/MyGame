@@ -1131,6 +1131,35 @@
       ]
     }
   },
+  "sheep" : {
+    "stand_image": "hero",
+    "x": 5,
+    "y": 3,
+    "animation": {
+      "atlas": "animation/animLela",
+      "anim_w": 4,
+      "anim_h": 1,
+      "vel": 0.3,
+      "anim_t":"LOOP"
+    },
+    "walk_anim" : {
+      "atlas": "animation/a_walk2",
+
+      "vel": 0.1,
+      "anim_w": 4,
+      "anim_h": 1
+    },
+    "phrases": {
+      "found":["Кажется, я что-то нашла!",
+        "Я вижу что-то полезное.",
+        "Думаю, мне это пригодится."
+      ],
+      "not_found":["Здесь только хлам.",
+        "Абсолютно ничего интересного...",
+        "Мне здесь ничего не нравится!"
+      ]
+    }
+  },
   "ghosts": [
     {
       "id": 1,

@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -71,7 +72,11 @@ public class TextureManager {
     public TextureRegion getRoomBackground(String filename) {
         TextureRegion region = backgrounds.get(filename);
         if (region == null) {
-            region = new TextureRegion(new Texture(filename));
+         //  region = new TextureRegion(new Texture(filename));
+           // backgrounds.put(filename, region);
+            Texture text = new Texture(filename);
+            text.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+            region = new TextureRegion(text);
             backgrounds.put(filename, region);
         }
         return region;

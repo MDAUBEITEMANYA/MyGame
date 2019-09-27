@@ -1,8 +1,12 @@
-package com.mygdx.game;
+package com.mygdx.game.curlygame;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Rectangle;
+import com.mygdx.game.Const;
+import com.mygdx.game.GameScreen;
+import com.mygdx.game.MusicManager;
+import com.mygdx.game.MyAnimation;
 import com.mygdx.game.npc.Ghost;
 import com.mygdx.game.npc.cutscene.CutsceneManager;
 import com.mygdx.game.obj.CentralDoor;
@@ -19,21 +23,35 @@ import com.mygdx.game.shit.level.LevelManager;
 
 import java.util.List;
 
-public class InputListener implements InputProcessor {
 
-    public   House house;
+public class SheepInputListener  implements InputProcessor {
+
+    public House house;
     static  House ho;
-    private GameScreen gameScreen;
-    public InputListener(GameScreen gameScreen, House house) {
-        this.gameScreen = gameScreen;
+    private SheepScreen sheepscren;
+
+    public SheepInputListener(SheepScreen sheepscren, House house) {
+        this.sheepscren = sheepscren;
         this.house = house;
     }
 
 
     @Override
     public boolean keyDown(int keycode) {
+        System.out.println("touchDown " + keycode + "BLYAT");
+        final  Sheep sheep = house.getSheep();
+
+        if (keycode == Input.Keys.D )
+        {
+            sheep.setSleepPoints(sheep.getSleepPoints()+1);
+        }
+        if (keycode == Input.Keys.A )
+        {
+            sheep.setSleepPoints(sheep.getSleepPoints()-1);
+        }
+
         if(keycode == Input.Keys.BACK) {
-            gameScreen.dispose();
+            sheepscren.dispose();
         }
         return false;
     }
@@ -45,6 +63,7 @@ public class InputListener implements InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
+
         return false;
     }
 
@@ -55,13 +74,11 @@ public class InputListener implements InputProcessor {
         final int realX = screenX;
         final int realY = Const.SCREEN_HEIGHT - screenY;
 
-        final Hero hero = house.getHero();
+      //  final Hero hero = house.getHero();
+        final  Sheep sheep = house.getSheep();
 
-        if (!hero.isVisible() && !CutsceneManager.getInstance().isSomeCutscenePlaying()) {
-            hero.setVisible(true);
-            return true;
-        }
-        if (gameScreen.menuBatchClick(realX, realY)) {
+        if (!sheep.isVisible() && !CutsceneManager.getInstance().isSomeCutscenePlaying()) {
+            sheep.setVisible(true);
             return true;
         }
 
@@ -93,8 +110,8 @@ public class InputListener implements InputProcessor {
             if(ghost.isAgring())
                 return true;
 
-            if (hero.isWalking()) {
-                hero.stopWalking();
+            if (sheep.isWalking()) {
+                sheep.stopWalking();
                 MusicManager.stopSound();
             }
             DialogPanel.getInstance().startDialog(ghost);
@@ -103,14 +120,15 @@ public class InputListener implements InputProcessor {
 
         Room room = house.getCurrentRoom();
 
-        if (room.isFloorClick(realX, realY)) {
-            if (( room.getId() == 14) &&(realX < 9.76f*Const.W)){
-                BottomPanel.getInstance().showPanel("Я не пойду дальше! Там так темно...");
-                return true;
-            }
+    /*    if (room.isFloorClick(realX, realY)) {
+            //if (( room.getId() == 14) &&(realX < 9.76f*Const.W)){
+            //    BottomPanel.getInstance().showPanel("Я не пойду дальше! Там так темно...");
+             //   return true;
+           // }
             float goX = realX;
-            List<Ghost> ghosts = house.getGhostsInRoom(room.getId());
-            for (Ghost g : ghosts) {
+            float goY = realY;
+          //  List<Ghost> ghosts = house.getGhostsInRoom(room.getId());
+           /* for (Ghost g : ghosts) {
                 if (realX > g.getX() && realX < g.getX() + g.getWidth()) {
                     if (hero.getX() < g.getX()) {
                         goX = g.getX() - hero.getWidth() / 2f;
@@ -135,13 +153,13 @@ public class InputListener implements InputProcessor {
                 }
             }
 
-            if (goX != hero.getX() + hero.getWidth() / 2f) {
-                hero.stopWalking();
-                hero.go(goX);
+            if ((goX != sheep.getX() + sheep.getWidth() / 2f)|| (goY != sheep.getY() + sheep.getHeight() / 2f)) {
+                sheep.stopWalking();
+                sheep.go(goX, goY);
             }
             return true;
-        }
-
+        }*/
+/*
         RoomSubject roomSubject = room.getSubject(realX, realY);
         if ((roomSubject != null) && (roomSubject.isVisible())) {
             BigListener.getInstance().roomSubjectClick(roomSubject, realX, realY);
@@ -151,7 +169,7 @@ public class InputListener implements InputProcessor {
             }
 
             BottomPanel.getInstance().showPanel(roomSubject);
-            hero.stopWalking();
+            sheep.stopWalking();
             return true;
         }
 
@@ -185,9 +203,9 @@ public class InputListener implements InputProcessor {
                     house.setCurrentRoom(whereWeWantToGo, door);
                     if (!(door instanceof CentralDoor)) {
                         if (door.getType().equals(Door.DoorType.FROM)) {
-                            hero.setX(door.getX() - door.getWidth());
+                            sheep.setX(door.getX() - door.getWidth());
                         } else if (door.getType().equals(Door.DoorType.TO)) {
-                            hero.setX(door.getX() + door.getWidth());
+                            sheep.setX(door.getX() + door.getWidth());
 
                         }
                     }
@@ -200,7 +218,7 @@ public class InputListener implements InputProcessor {
                             DialogPanel.getInstance().startDialog(ghost);
                             break;
                         }else{
-                            ghost.turnToHero(hero);
+                            ghost.turnToHero(sheep);
                         }
                     }
                     MusicManager.playSound(MusicManager.SoundType.DOOR, false);
@@ -209,15 +227,15 @@ public class InputListener implements InputProcessor {
             };
 
             if (door instanceof CentralDoor) {
-                hero.go(door.getX() + door.getWidth() / 2f, end);
+                sheep.go(door.getX() + door.getWidth() / 2f, end);
             } else {
                 if (door.getType().equals(Door.DoorType.TO)) {
-                    hero.go(door.getX() + door.getWidth(), end);
+                    sheep.go(door.getX() + door.getWidth(), end);
                 } else {
-                    hero.go(door.getX(), end);
+                    sheep.go(door.getX(), end);
                 }
             }
-        }
+        }*/
         return true;
     }
 

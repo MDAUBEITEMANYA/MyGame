@@ -55,7 +55,7 @@ public class MenuScreen implements Screen, InputProcessor { //скрин мен�
         newgameSprite.draw(menubatch);
         resgameSprite.draw(menubatch);
         exitgameSprite.draw(menubatch);
-//        setgameSprite.draw(menubatch);
+//       setgameSprite.draw(menubatch);
         helpgameSprite.draw(menubatch);
 
         menubatch.end();

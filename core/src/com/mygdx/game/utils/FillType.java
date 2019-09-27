@@ -36,6 +36,7 @@ public class FillType {
     public static final String ATLAS_ANIMATION_FILEPATH = "atlas";
     public static final String HERO = "hero";
 
+
     public static final String CLOSED = "close";
     public static final String ROOM = "room";
     public static final String IS_BAD = "isBad";
@@ -44,7 +45,11 @@ public class FillType {
     public static final String START_POSITION = "start_position";
     public static final String PHRASES = "phrases";
 
-
+    public static final String SHEEP = "sheep";
+    public static final String SHEEP_WALK_ANIMATION = "walk_anim";
+    public static final String SHEEP_SLEEP_ANIMATION = "sleep_anim";
+    public static final String SHEEP_STANDING_IMAGE = "stand_image";
+    public static final String SHEEP_SLEEP_POINTS = "SleepPoints";
 
 
 

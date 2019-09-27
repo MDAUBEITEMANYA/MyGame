@@ -1,19 +1,23 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
+import com.mygdx.game.curlygame.SheepScreen;
 
 public class MyGame extends Game {
 
     public GameScreen gameScreen;
     private MenuScreen menuScreen;
     private HelpScreen helpScreen;
+    private SheepScreen sheepScreen;
 
 
     public void create() { //запуск игры
         gameScreen = new GameScreen(this);
         menuScreen = new MenuScreen(this);
         helpScreen = new HelpScreen(this);
-        setScreen(menuScreen); //ставим экран меню
+        sheepScreen = new SheepScreen(this);
+        setScreen(sheepScreen); //ставим экран меню
+        //setScreen(curlyScreen);
     }
 
     public void goToGameScreen() { //переход к экрану игры

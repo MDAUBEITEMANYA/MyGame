@@ -14,6 +14,19 @@ public class Const {
     public static final float HERO_H = H * 4; //высота персонажа
     public static final String LELA_FACE_IMAGE_FILEPATH = "lela"; //лицо деовчки
 
+    public static final float SHEEP_W = W * 2.25f/2f; //ширина персонажа
+    public static final float SHEEP_H = H * 2.075f/2f; //высота персонажа
+
+
+    public static final float FLOOR_X = W*5.2f; //Х координата пола
+    public static final float FLOOR_Y = H*0.7f;//y координата пола
+    public static final float FLOOR_W =  W * 5.55f; //ширина
+    public static final float FLOOR_H = H * 3.1f; //высота
+
+    public static final float VEL_X = 1f*W; //скорость ебучей овцы
+    public static final float VEL_Y = 1f*H; //скорость ебучей овцы
+
+
     public static final Application.ApplicationType TYPE = Gdx.app.getType();
 
     public static final float RIGHT_DOOR_X = 14.84f * Const.W; //положение двери х (правая)
@@ -44,10 +57,14 @@ public class Const {
     public static final String MENU_HGAME_S_FILEPATH = "menu/helpgame.png";
     public static final String MENU_EGAME_S_FILEPATH = "menu/exitgame.png";
 
+    public static final String TEMP_FILEPATH = "backgrounds/sheepGame.png";
+
+
     public static final String BACKGROUND_MUSIC_FILEPATH = "songs/song2.mp3";//музыка на заднем плане ФОН
 
     public static final String MENU_MUSIC_FILEPATH = "songs/menu.mp3";//музыка на заднем плане МЕНЮ
-    public static final String JSON = "All_Things";
+    public static final String JSON_HOUSE_WORLD= "All_Things";
+    public static final String JSON_SHEEP_WORLD= "Sheep_World";
     public static final String SAVE = "walker/save.json";
     public static final String QUEST = "quests/quest.xml";
     public static final String CUT_SCENE = "quests/cutscene.xml";

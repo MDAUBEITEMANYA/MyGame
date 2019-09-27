@@ -5,6 +5,7 @@ import com.mygdx.game.DebugOptions;
 import com.mygdx.game.GhostFindBlackScreen;
 import com.mygdx.game.MyAnimation;
 import com.mygdx.game.MyGame;
+import com.mygdx.game.curlygame.Sheep;
 import com.mygdx.game.factory.DoorFactory;
 import com.mygdx.game.npc.BadGhost;
 import com.mygdx.game.npc.Ghost;
@@ -32,6 +33,7 @@ public class House {
     private HashMap<Integer, Room> roomsMap;
     private Room currentRoom;
     private Hero hero;
+    private Sheep sheep;
     public MyGame myGame;
 
     private OnEndGame endGame;
@@ -46,6 +48,16 @@ public class House {
 
         hero = new Hero(this, object);
         setCurrentRoom(rooms[13], null);
+    }
+    public House(JSONObject object, MyGame myGame,int roomId, OnEndGame endGame) {
+        this.endGame = endGame;
+        this.myGame = myGame;
+        doorsMap = new HashMap<>();
+        roomsMap = new HashMap<>();
+        items = new ArrayList<>();
+        parseJson(object);
+        sheep = new Sheep(this, object);
+        setCurrentRoom(rooms[roomId-1], null);
     }
 
     public void addChangeLog(ChangeLogItem item) {
@@ -125,8 +137,9 @@ public class House {
         for (Ghost ghost : ghostList) {
             ghost.update(dt);
         }
-        hero.update(dt);
-
+      //  hero.update(dt);
+        sheep.update(dt);
+        /*
         for (Ghost ghost : ghostList) {
             if (ghost.isBad() && ghost.getRoom() == currentRoom
                     && ((BadGhost) ghost).isIntersect(hero)&& !CutsceneManager.getInstance().isSomeCutscenePlaying()) {
@@ -136,7 +149,7 @@ public class House {
                 myGame.setScreen(new GhostFindBlackScreen(this, myGame, ghost));
                 break;
             }
-        }
+        }*/
     }
 
     public RoomSubject findRoomSubject(int rsId) {
@@ -165,7 +178,8 @@ public class House {
             if (ghost.getRoom() == currentRoom)
                 ghost.draw(batch);
         }
-        hero.draw(batch);
+      //  hero.draw(batch);
+        sheep.draw(batch);
     }
 
     public Room getRoom(int id) {
@@ -195,6 +209,10 @@ public class House {
     public Hero getHero() {
         return hero;
     }
+    public Sheep getSheep() {
+        return sheep;
+    }
+
 
     public Room getCurrentRoom() {
         return currentRoom;

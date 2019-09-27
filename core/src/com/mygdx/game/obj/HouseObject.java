@@ -7,7 +7,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import org.json.JSONObject;
 
 
-public abstract class HouseObject extends Sprite {
+public abstract class HouseObject extends Sprite
+{
     private House house;
 
     public HouseObject(House house, JSONObject object) {

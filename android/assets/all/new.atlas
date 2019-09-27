@@ -2,7 +2,7 @@
 new.png
 size: 2048,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 InventBut
   rotate: false
@@ -53,11 +53,25 @@ oleandr
   orig: 331, 358
   offset: 0, 0
   index: -1
+sheep
+  rotate: false
+  xy: 1085, 452
+  size: 270, 249
+  orig: 270, 249
+  offset: 0, 0
+  index: -1
+sheep_png
+  rotate: false
+  xy: 1085, 452
+  size: 270, 249
+  orig: 270, 249
+  offset: 0, 0
+  index: -1
 
 new2.png
 size: 4096,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 animation/Doll
   rotate: false
@@ -108,11 +122,25 @@ animation/nice4
   orig: 1652, 1735
   offset: 0, 0
   index: -1
+animation/sheep_sleep
+  rotate: false
+  xy: 1124, 38
+  size: 270, 251
+  orig: 270, 251
+  offset: 0, 0
+  index: -1
+animation/sheep_walk
+  rotate: false
+  xy: 3258, 1457
+  size: 270, 249
+  orig: 270, 249
+  offset: 0, 0
+  index: -1
 
 new3.png
 size: 4096,512
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 animation/animLela
   rotate: false
@@ -132,7 +160,7 @@ animation/animOleandr
 new4.png
 size: 512,256
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 buttons/hide
   rotate: false
@@ -152,7 +180,7 @@ buttons/search
 new5.png
 size: 2048,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 doors/central
   rotate: false
@@ -186,7 +214,7 @@ doors/right
 new6.png
 size: 4096,512
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 item/Emily
   rotate: false
@@ -269,7 +297,7 @@ item/zlata
 new7.png
 size: 4096,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 NPC/Iva
   rotate: false
@@ -296,7 +324,7 @@ NPC/fail
 new8.png
 size: 2048,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR1/Basket
   rotate: false
@@ -344,7 +372,7 @@ SR1/Table
 new9.png
 size: 2048,1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR10/Cup
   rotate: false
@@ -371,7 +399,7 @@ SR10/kitchen
 new10.png
 size: 1024,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR11/box2
   rotate: false
@@ -405,7 +433,7 @@ SR11/poison
 new11.png
 size: 1024,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR12/Basket
   rotate: false
@@ -453,7 +481,7 @@ SR12/Table
 new12.png
 size: 4096,1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR13/Cupboard
   rotate: false
@@ -501,7 +529,7 @@ SR13/TableGift
 new13.png
 size: 2048,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR14/rectangle
   rotate: false
@@ -514,7 +542,7 @@ SR14/rectangle
 new14.png
 size: 1024,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR2/BoxToys
   rotate: false
@@ -562,7 +590,7 @@ SR2/Thread
 new15.png
 size: 2048,1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR3/Alena
   rotate: false
@@ -638,7 +666,7 @@ SR3/Zlata
 new16.png
 size: 2048,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR4/Bookshelf_mrl
   rotate: false
@@ -686,7 +714,7 @@ SR4/ThingsTab
 new17.png
 size: 2048,1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR5/Drawing1
   rotate: false
@@ -727,7 +755,7 @@ SR5/WadrobeRose
 new18.png
 size: 1024,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR6/Magni
   rotate: false
@@ -768,7 +796,7 @@ SR6/RDrawing3
 new19.png
 size: 2048,1024
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR7/Cake
   rotate: false
@@ -802,7 +830,7 @@ SR7/Wadrobe2
 new20.png
 size: 2048,512
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR8/Box
   rotate: false
@@ -829,7 +857,7 @@ SR8/list
 new21.png
 size: 1024,2048
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 SR9/CupB
   rotate: false

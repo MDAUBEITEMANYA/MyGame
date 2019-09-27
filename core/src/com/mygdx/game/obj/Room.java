@@ -14,6 +14,7 @@ import org.json.JSONObject;
 public class Room extends HouseObject {
 
     public Rectangle floor;
+    public Rectangle sheepFloor;
     public Rectangle earth;
     public RoomSubject roomSubjects[];
     private int id;
@@ -33,8 +34,13 @@ public class Room extends HouseObject {
                 roomSubjects[i] = RoomSubjectFactory.createSubject(array.optJSONObject(i), house, id);
             }
         }
-        floor = new Rectangle(Const.LR_DOOR_W, 0, Const.SCREEN_WIDTH - 2 * Const.LR_DOOR_W, Const.H * 1.8f);
-        earth = new Rectangle(Const.W * 9.92f, 0, 3.3f*Const.W , Const.H * 1.8f);
+       // floor = new Rectangle(Const.W, 0, Const.SCREEN_WIDTH - 2 * Const.LR_DOOR_W, Const.H * 1.8f);
+        //параметры х, y нижней точки и длина ширина предмета
+        sheepFloor = new Rectangle(Const.FLOOR_X, Const.FLOOR_Y, Const.FLOOR_W, Const.FLOOR_H);
+
+        // sheepFloor = new Rectangle(0, 0, Const.W * 15.5f, Const.H * 15.1f);
+       // floor = new Rectangle(Const.LR_DOOR_W, 0, Const.SCREEN_WIDTH - 2 * Const.LR_DOOR_W, Const.H * 1.8f);
+       // earth = new Rectangle(Const.W * 9.92f, 0, 3.3f*Const.W , Const.H * 1.8f);
 
         backgroundFilename = object.optString(FillType.BACKGROUND);
 
@@ -52,6 +58,10 @@ public class Room extends HouseObject {
 
     public Rectangle getFloor() {
         return floor;
+    }
+
+    public Rectangle getsheepFloor() {
+        return sheepFloor;
     }
 
     @Override
@@ -92,11 +102,11 @@ public class Room extends HouseObject {
     }
 
     public boolean isFloorClick(float x, float y) {
-        return floor.contains(x, y);
+        return sheepFloor.contains(x, y);
     }
-    public boolean isEarthClick(float x, float y) {
+    /*public boolean isEarthClick(float x, float y) {
         return earth.contains(x, y);
-    }
+    }*/
     public RoomSubject getRoomSubject(int rsId) {
         for (RoomSubject roomSubject : roomSubjects) {
             if (roomSubject.getId() == rsId)
